@@ -1,7 +1,8 @@
-package com.example.debarembar;
+package com.example.debarembar.view;
 
 import android.os.Bundle;
 
+import com.example.debarembar.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 

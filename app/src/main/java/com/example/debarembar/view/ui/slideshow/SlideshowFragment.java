@@ -1,4 +1,4 @@
-package com.example.debarembar.ui.slideshow;
+package com.example.debarembar.view.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

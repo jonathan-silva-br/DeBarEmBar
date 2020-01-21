@@ -1,4 +1,4 @@
-package com.example.debarembar.ui.gallery;
+package com.example.debarembar.view.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
