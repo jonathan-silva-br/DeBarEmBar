@@ -27,25 +27,55 @@ public class Bebida {
         this.setNome(nomeRepassado);
     }
 
+    /**
+     * getNome
+     * @return retorna a String nome da classe Bebida
+     */
+
     public String getNome() {
         return nome;
     }
+
+    /**
+     * setNome
+     * @param nome define a String nome da classe Bebida
+     */
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * getValorUnitario
+     * @return retorna o double valorUnitario da classe Bebida
+     */
+
     public double getValorUnitario() {
         return valorUnitario;
     }
+
+    /**
+     * setValorUnitario
+     * @param valorUnitario define o double valorUnitario da classe Bebida
+     */
 
     public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 
+    /**
+     * getImagem
+     * @return retorna o int imagem da classe Bebida
+     */
+
     public int getImagem() {
         return imagem;
     }
+
+    /**
+     * setImagem
+     * @param imagem define o int imagem da classe Bebida
+     */
 
     public void setImagem(int imagem) {
         this.imagem = imagem;
