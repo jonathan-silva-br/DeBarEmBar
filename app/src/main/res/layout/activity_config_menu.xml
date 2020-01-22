@@ -31,7 +31,7 @@
                 app:srcCompat="@mipmap/user_logo_foreground" />
 
             <EditText
-                android:id="@+id/edt_barra_pesquisa"
+                android:id="@+id/etBuscarBar"
                 android:layout_width="228dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"

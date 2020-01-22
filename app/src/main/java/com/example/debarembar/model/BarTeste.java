@@ -1,10 +1,13 @@
 package com.example.debarembar.model;
 
+import android.media.ImageReader;
+
 import java.util.ArrayList;
 
 public class BarTeste {
     private String nome;
     private String imagem;
+    private int imagemCerta;
     private int avaliacao;
     private ArrayList<String> product;
 
@@ -21,10 +24,25 @@ public class BarTeste {
         setImagem(imagem);
         setAvaliacao(avaliacao);
     }
+
     public BarTeste(String nome, int avaliacao, ArrayList<String> listProduct ){
         setNome(nome);
         setAvaliacao(avaliacao);
         setProduct(listProduct);
+    }
+    public BarTeste(String nome, int avaliacao, ArrayList<String> listProduct , int imagem){
+        setNome(nome);
+        setAvaliacao(avaliacao);
+        setProduct(listProduct);
+        setImagemCerta(imagem);
+    }
+
+    public int getImagemCerta() {
+        return imagemCerta;
+    }
+
+    public void setImagemCerta(int imagemCerta) {
+        this.imagemCerta = imagemCerta;
     }
 
     public String getNome() {

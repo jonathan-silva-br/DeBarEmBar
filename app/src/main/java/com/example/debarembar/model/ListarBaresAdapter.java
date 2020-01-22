@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import com.example.debarembar.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.ListarBaresAdapterViewHolder> {
     private Context mContext;
@@ -24,6 +25,7 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
         mListBar = listBar;
         mContext = context;
     }
+
     @NonNull
     @Override
     //Definindo onde vai ser inflado a lista com cardView
@@ -42,6 +44,7 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
         holder.txtListBarName.setText(bar.getNome());
         holder.txtListBarAvaliacao.setText("Nota: "+bar.getAvaliacao());
         holder.txtListProduct.setText(bar.getProduct().toString());
+        holder.imgListBar.setImageResource(bar.getImagemCerta());
     }
 
     @Override
@@ -62,5 +65,9 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
             txtListBarAvaliacao = itemView.findViewById(R.id.txtListNota);
             txtListProduct = itemView.findViewById(R.id.txtListProduct);
         }
+    }
+    public void updateList(ArrayList<BarTeste> list){
+        mListBar = list;
+        notifyDataSetChanged();
     }
 }

@@ -2,7 +2,6 @@ package com.example.debarembar.model;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +32,7 @@ public class ConfigMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config_menu);
         // Edit Text
-        edt_barra_pesquisa = findViewById(R.id.edt_barra_pesquisa);
+        edt_barra_pesquisa = findViewById(R.id.etBuscarBar);
 
         //Button
         btEdit = findViewById(R.id.btEdit);
