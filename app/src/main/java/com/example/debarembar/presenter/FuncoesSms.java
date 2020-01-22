@@ -33,6 +33,7 @@ public class FuncoesSms {
      */
     public void SendSms(Context c, String numero, String mensagem){
 
+
         if(checkPermission(Manifest.permission.SEND_SMS, c)){
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(numero,null,mensagem,null,null);
