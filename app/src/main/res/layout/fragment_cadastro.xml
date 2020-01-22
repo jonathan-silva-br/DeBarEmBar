@@ -8,260 +8,224 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="0dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="288dp"
-                android:text="Inserir imagem"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloBebidas" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="379dp" />
-
-            <Button
-                android:id="@+id/btnCadastrarLocal"
-                android:layout_width="263dp"
-                android:layout_height="47dp"
-                android:background="@drawable/layout_bg"
-                android:text="Cadastrar Local"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.493"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                tools:layout_editor_absoluteY="728dp" />
-
-            <ImageView
-                android:id="@+id/imgIcon"
-                android:layout_width="106dp"
-                android:layout_height="89dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:srcCompat="@android:drawable/ic_menu_camera"
-                tools:layout_editor_absoluteY="639dp" />
-
-            <EditText
-                android:id="@+id/editNomeInformado"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloView" />
-
-            <TextView
-                android:id="@+id/textTituloNome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="20dp"
-                android:text="Nome do Local"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloView" />
-
-            <TextView
-                android:id="@+id/textTituloBebidas"
-                android:layout_width="86dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:text="Bebidas"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="278dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textTituloView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:text="Cadastrar Local"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="Nome do local"
+                    android:hint="Nome do local"
+                    android:textSize="14dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textTituloClassifique"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="22dp"
+                    android:text="Classificação"
+                    android:textSize="16dp" />
+
+                <RatingBar
+                    android:id="@+id/rb_classificacao"
+                    style="@style/customRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:maxHeight="20dp"
+                    android:minHeight="20dp"
+                    android:numStars="5" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textTituloClassifique"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="20dp"
-                android:text="Classifique o Local:"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editNomeInformado" />
+                android:id="@+id/textTituloBebidas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
+                android:text="Bebidas"
+                android:textSize="18dp" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_end="379dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imgSelect"
-                android:layout_width="59dp"
-                android:layout_height="37dp"
-                android:layout_marginBottom="156dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.728"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_gallery" />
+                <GridLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editValorCorona"
-                android:layout_width="134dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="256dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.805"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloView" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editValorBudweiser"
-                android:layout_width="134dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="292dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.805"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloView" />
+                        <CheckBox
+                            android:id="@+id/checkBoxStellaArtois"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:text="Stella Artois 550 mL" />
 
-            <EditText
-                android:id="@+id/editValorStellaArtois"
-                android:layout_width="134dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="332dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.805"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloView" />
+                        <CheckBox
+                            android:id="@+id/checkBoxCorona"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:text="Corona 355 mL" />
 
-            <EditText
-                android:id="@+id/editValorBecks"
-                android:layout_width="134dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="368dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.805"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloView" />
+                        <CheckBox
+                            android:id="@+id/checkBoxBudweiser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:text="Budweiser 343 mL" />
 
-            <CheckBox
-                android:id="@+id/checkBoxCorona"
-                android:layout_width="141dp"
-                android:layout_height="31dp"
-                android:layout_marginTop="316dp"
-                android:text="Corona 355 mL"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.059"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                        <CheckBox
+                            android:id="@+id/checkBoxBecks"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:text="Beck’s 330 mL" />
 
-            <CheckBox
-                android:id="@+id/checkBoxStellaArtois"
-                android:layout_width="172dp"
-                android:layout_height="23dp"
-                android:layout_marginTop="392dp"
-                android:text="Stella Artois 550 mL"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.066"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                    </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/checkBoxBecks"
-                android:layout_width="151dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="428dp"
-                android:text="Beck’s 330 mL"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.061"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                </GridLayout>
 
-            <CheckBox
-                android:id="@+id/checkBoxBudweiser"
-                android:layout_width="149dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="360dp"
-                android:text="Budweiser 343 mL"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.061"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <RatingBar
-                android:id="@+id/ratingBarClassificacao"
-                android:layout_width="224dp"
-                android:layout_height="39dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@+id/textTituloClassifique"
-                tools:layout_editor_absoluteX="16dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="vertical">
 
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView2"
-                android:layout_width="107dp"
-                android:layout_height="78dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginRight="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="489dp" />
+                        <EditText
+                            android:id="@+id/editValorStellaArtois"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_marginRight="60dp"
+                            android:inputType="textPersonName"
+                            android:textSize="10dp" />
+
+                        <EditText
+                            android:id="@+id/editValorBecks"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_marginRight="60dp"
+                            android:inputType="textPersonName"
+                            android:textSize="10dp" />
+
+                        <EditText
+                            android:id="@+id/editValorCorona"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_marginRight="60dp"
+                            android:inputType="textPersonName"
+                            android:textSize="10dp" />
+
+                        <EditText
+                            android:id="@+id/editValorBudweiser"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_marginRight="60dp"
+                            android:inputType="textPersonName"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+                </GridLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="64dp"
-                android:text="Informar a Localização"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBoxBecks" />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Localização"
+                android:textSize="18dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/btn_galeria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_custom"
+                    android:text="Galeria" />
+
+                <Button
+                    android:id="@+id/btn_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_custom"
+                    android:text="Camera" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_cadastrar"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_custom"
+                android:text="Cadastrar" />
+
+        </LinearLayout>
     </ScrollView>
 
 

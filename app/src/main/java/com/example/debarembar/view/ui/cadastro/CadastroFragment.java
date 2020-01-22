@@ -23,13 +23,7 @@ public class CadastroFragment extends Fragment {
         cadastroViewModel =
                 ViewModelProviders.of(this).get(CadastroViewModel.class);
         View root = inflater.inflate(R.layout.fragment_cadastro, container, false);
-        final TextView textView = root.findViewById(R.id.textTituloView);
-        cadastroViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
 }
