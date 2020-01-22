@@ -18,11 +18,6 @@ import androidx.core.content.ContextCompat;
 public class FuncoesSms {
 
     /**
-     * TODO >>> https://www.youtube.com/watch?v=Z28s39brZJM <<<
-     */
-    final int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
-
-    /**
      * Método responsável por enviar o SMS
      *
      * Através do método checkpermission, se tiver a permissão necessária
@@ -36,12 +31,14 @@ public class FuncoesSms {
      * @param numero - numero do telefone que estou enviando
      * @param mensagem - conteúdo do SMS
      */
-    public void onSend(Context c, String numero, String mensagem){
+    public void SendSms(Context c, String numero, String mensagem){
 
         if(checkPermission(Manifest.permission.SEND_SMS, c)){
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(numero,null,mensagem,null,null);
             Toast.makeText(c, "Compartilhado!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(c, "Não foi possível enviar o SMS", Toast.LENGTH_SHORT).show();
         }
 
     }

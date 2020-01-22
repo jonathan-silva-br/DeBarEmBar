@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private void getPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS},1);
+            requestPermissions(new String[]{Manifest.permission.SEND_SMS},2);
         }
     }
 

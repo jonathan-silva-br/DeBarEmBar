@@ -42,7 +42,7 @@ public class AdapterContatos extends RecyclerView.Adapter<AdapterContatos.MyView
         return listaContatos.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView lblNomeContato;
 
@@ -59,10 +59,17 @@ public class AdapterContatos extends RecyclerView.Adapter<AdapterContatos.MyView
             super(itemView);
 
             lblNomeContato = itemView.findViewById(R.id.lblNomeContato);
+            itemView.setOnClickListener(this);
 
         }
 
 
+        @Override
+        public void onClick(View v) {
+
+
+
+        }
     }
 
 }

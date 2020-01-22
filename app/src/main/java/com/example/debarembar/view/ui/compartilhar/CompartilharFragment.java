@@ -1,4 +1,4 @@
-package com.example.debarembar.view.ui.share;
+package com.example.debarembar.view.ui.compartilhar;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -35,7 +35,7 @@ import java.util.ArrayList;
  * @since 1.0.0
  *
  */
-public class ShareFragment extends Fragment {
+public class CompartilharFragment extends Fragment {
 
     /**
      * Variável global que vai receber o recyclerView
