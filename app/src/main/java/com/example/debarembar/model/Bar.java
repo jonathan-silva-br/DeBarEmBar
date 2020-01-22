@@ -34,6 +34,11 @@ public class Bar {
         bebidaArrayList = new ArrayList<>();
     }
 
+    public Bar(String nomeRepassado){
+        this.setNome(nomeRepassado);
+        bebidaArrayList = new ArrayList<>();
+    }
+
     /**
      * getNome
      * @return retorna a String nome da classe Bar
