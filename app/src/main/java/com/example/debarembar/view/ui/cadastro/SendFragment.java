@@ -1,4 +1,4 @@
-package com.example.debarembar.view.ui.send;
+package com.example.debarembar.view.ui.cadastro;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
