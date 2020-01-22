@@ -2,6 +2,7 @@ package com.example.debarembar.model;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -62,7 +63,12 @@ public class ConfigMenu extends AppCompatActivity {
         maincontent = findViewById(R.id.linearLayout22);
         mainmenu = findViewById(R.id.mainmenu);
         embacar = findViewById(R.id.embacar);
-
+        btListarBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConfigMenu.this, ListarBares.class));
+            }
+        });
 
         imagemIcon = findViewById(R.id.img_filtro);
         imagemIcon.setOnClickListener(new View.OnClickListener() {
