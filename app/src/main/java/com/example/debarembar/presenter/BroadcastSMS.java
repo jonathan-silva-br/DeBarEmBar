@@ -7,6 +7,25 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
+import org.json.JSONObject;
+
+/**
+ *
+ * Classe responsável pelo recebimento do Broadcast
+ *
+ * No onReceive pegamos o intent e colocamos no bundle para que possamos
+ * retirar os pdus, para assim construir a mensagem do sms que foi captada.
+ * Se o bundle for nulo, então ele irá percorrer os pdus e pegar as mensagens.
+ *
+ * Logo abaixo é realizada uma verificação se a mensagem que recebemos tem
+ * o app@barembar, que é uma maneira de identificar que o sms é proveniente
+ * do nosso próprio aplicativo, para assim transformar o conteúdo dele em
+ * um JSONObject, para adicionar na lista da tela dos bares.
+ *
+ * @author Matheus Geiser <matheusgeiser@gmail.com>
+ * @since 1.0.0
+ *
+ */
 public class BroadcastSMS extends BroadcastReceiver {
 
 
@@ -29,8 +48,17 @@ public class BroadcastSMS extends BroadcastReceiver {
                     String senderNum = phoneNumber;
                     String message = currentMessage.getDisplayMessageBody();
 
+                    if(message.contains("app@barembar")){
+                        String[] m = message.split(":");
+
+                        String infos = m[1];
+                        JSONObject object = new JSONObject(infos);
+                        Log.e("OBJETO RECEBIDO",object.toString());
 
 
+
+
+                    }
 
 
 
@@ -42,8 +70,5 @@ public class BroadcastSMS extends BroadcastReceiver {
 
         }
     }
-
-
-
 
 }
