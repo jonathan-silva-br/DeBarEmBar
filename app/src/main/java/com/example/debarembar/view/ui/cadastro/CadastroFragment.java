@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -53,6 +56,43 @@ public class CadastroFragment extends Fragment {
         //Text utilizado para obter o estado do local cadastrado
         final TextInputEditText estado;
         estado = root.findViewById(R.id.textEstado);
+
+        //RatingBar utilizado para obter a classificação do local cadastrado
+        RatingBar classificacao;
+        classificacao = root.findViewById(R.id.rb_classificacao);
+
+        //CheckBox utilizado para setar a informação de existência da cerveja Stella Artois no local cadastrado
+        CheckBox checkStella;
+        checkStella = root.findViewById(R.id.checkBoxStellaArtois);
+
+        //CheckBox utilizado para setar a informação de existência da cerveja Corona no local cadastrado
+        CheckBox checkCorona;
+        checkCorona = root.findViewById(R.id.checkBoxCorona);
+
+        //CheckBox utilizado para setar a informação de existência da cerveja Budweiser no local cadastrado
+        CheckBox checkBudweiser;
+        checkBudweiser = root.findViewById(R.id.checkBoxBudweiser);
+
+        //CheckBox utilizado para setar a informação de existência da cerveja Becks no local cadastrado
+        CheckBox checkBecks;
+        checkBecks = root.findViewById(R.id.checkBoxBecks);
+
+        //EditText utilizado para obter o valorUnitario da cerveja Stella Artois
+        EditText valorStella;
+        valorStella = root.findViewById(R.id.editValorStellaArtois);
+
+        //EditText utilizado para obter o valorUnitario da cerveja Corona
+        EditText valorCorona;
+        valorCorona = root.findViewById(R.id.editValorCorona);
+
+        //EditText utilizado para obter o valorUnitario da cerveja Budweiser
+        EditText valorBudweiser;
+        valorBudweiser = root.findViewById(R.id.editValorBudweiser);
+
+        //EditText utilizado para obter o valorUnitario da cerveja Becks
+        EditText valorBecks;
+        valorBecks = root.findViewById(R.id.editValorBecks);
+
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
