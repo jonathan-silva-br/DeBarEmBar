@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,10 +42,12 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
     public void onBindViewHolder(@NonNull ListarBaresAdapterViewHolder holder, int position) {
         Bar bar = mListBar.get(position);
 
-        holder.txtListBarName.setText(bar.getNome());
-        //holder.txtListBarAvaliacao.setText("Nota: "+bar.getAvaliacao());
-        //holder.txtListProduct.setText(bar.getProduct().toString());
-        //holder.imgListBar.setImageResource(bar.getImagemCerta());
+        holder.txtNomeBar.setText(bar.getNome());
+        holder.txtCidadeEstado.setText("Cidade: " + bar.getMunicipio() + " / " + bar.getEstado());
+        holder.txtBairo.setText("Bairro: " + bar.getBairro());
+        holder.txtRuaNumero.setText("Rua: " + bar.getNomeRua() + "  n°:" + bar.getNumeroEndereco());
+        holder.bebidaEPreco.setText(bar.getBebidaArrayList().toString());
+        holder.avaliacao.setRating((float)bar.getClassificacao());
     }
 
     @Override
@@ -54,16 +57,22 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
 
     public class ListarBaresAdapterViewHolder extends RecyclerView.ViewHolder{
         private ImageView imgListBar;
-        private TextView txtListBarName;
-        private TextView txtListBarAvaliacao;
-        private TextView txtListProduct;
+        private TextView txtNomeBar;
+        private TextView txtCidadeEstado;
+        private TextView txtBairo;
+        private TextView txtRuaNumero;
+        private RatingBar avaliacao;
+        private TextView bebidaEPreco;
 
         public ListarBaresAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgListBar = itemView.findViewById(R.id.imgListBar);
-            txtListBarName = itemView.findViewById(R.id.txtListNameBar);
-            txtListBarAvaliacao = itemView.findViewById(R.id.txtListNota);
-            txtListProduct = itemView.findViewById(R.id.txtListProduct);
+            //imgListBar = itemView.findViewById(R.id.imgListBar);
+            txtNomeBar = itemView.findViewById(R.id.tvNomeBar);
+            txtCidadeEstado = itemView.findViewById(R.id.tvCidadeEstado);
+            txtBairo = itemView.findViewById(R.id.tvBairro);
+            txtRuaNumero = itemView.findViewById(R.id.tvRuaNumero);
+            avaliacao = itemView.findViewById(R.id.rbAvaliacao);
+            bebidaEPreco = itemView.findViewById(R.id.tvBebidaPreco);
         }
     }
     public void updateList(ArrayList<Bar> list){

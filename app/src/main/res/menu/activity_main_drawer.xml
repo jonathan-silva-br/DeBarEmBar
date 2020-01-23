@@ -13,12 +13,12 @@
         <item
             android:id="@+id/listarBares"
             android:icon="@drawable/favoritos"
-            android:title="Listar Bar" />
+            android:title="Lista de Bar" />
 
         <item
-            android:id="@+id/btConfig"
+            android:id="@+id/cadastrarBar"
             android:icon="@drawable/config"
-            android:title="Adicionar bar" />
+            android:title="Cadastrar Bar" />
 
         <item
             android:id="@+id/btSobre"

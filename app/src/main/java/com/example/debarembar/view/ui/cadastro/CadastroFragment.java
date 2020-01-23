@@ -38,24 +38,24 @@ public class CadastroFragment extends Fragment {
         nomeLocal = root.findViewById(R.id.textNomeLocal);
 
         //Text utilizado para obter a rua do local cadastrado
-        final TextInputEditText nomeRua;
-        nomeRua = root.findViewById(R.id.textNomeRua);
+        final TextView nomeRua;
+        nomeRua = root.findViewById(R.id.etCadastroBarLogradouro);
 
         //Text utilizado para obter o número do local cadastrado
-        final TextInputEditText numero;
-        numero = root.findViewById(R.id.textNumero);
+        final TextView numero;
+        numero = root.findViewById(R.id.etCadastroBarNumero);
 
         //Text utilizado para obter o bairro do local cadastrado
-        final TextInputEditText bairro;
-        bairro = root.findViewById(R.id.textBairro);
+        final TextView bairro;
+        bairro = root.findViewById(R.id.etCadastroBarBairro);
 
         //Text utilizado para obter o município do local cadastrado
-        final TextInputEditText municipio;
-        municipio = root.findViewById(R.id.textMunicipio);
+        final TextView municipio;
+        municipio = root.findViewById(R.id.etCadastroBarCidade);
 
         //Text utilizado para obter o estado do local cadastrado
-        final TextInputEditText estado;
-        estado = root.findViewById(R.id.textEstado);
+        final TextView estado;
+        estado = root.findViewById(R.id.etCadastroBarEstado);
 
         //RatingBar utilizado para obter a classificação do local cadastrado
         final RatingBar classificacao;
@@ -134,4 +134,6 @@ public class CadastroFragment extends Fragment {
 
         return cadastroPresenter;
     }
+
+
 }

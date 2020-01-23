@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.debarembar.R;
 import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.BarTeste;
+import com.example.debarembar.model.Bebida;
 import com.example.debarembar.presenter.ListarBaresAdapter;
 
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class ListarBar extends Fragment {
         listProduct2.add("Corona");
         listProduct2.add("LOKAL");
         listProduct2.add("KAISE QUENTE");
+
+        ArrayList<Bebida> listBebidasPreSetadas = new ArrayList<>();
+
 
         mBarList.add(new Bar("Bar do gusto", "Rua tamarindo", "22", "Centro", "Blumenau", "SC", 2));
         mBarList.add(new Bar("BMoutilas", "Rua outra", "222", "2 de setembro", "Gaspar", "PR", 4));
