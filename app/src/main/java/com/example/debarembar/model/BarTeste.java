@@ -19,17 +19,6 @@ public class BarTeste {
         this.product = product;
     }
 
-    public BarTeste(String nome, String imagem, int avaliacao){
-        setNome(nome);
-        setImagem(imagem);
-        setAvaliacao(avaliacao);
-    }
-
-    public BarTeste(String nome, int avaliacao, ArrayList<String> listProduct ){
-        setNome(nome);
-        setAvaliacao(avaliacao);
-        setProduct(listProduct);
-    }
     public BarTeste(String nome, int avaliacao, ArrayList<String> listProduct , int imagem){
         setNome(nome);
         setAvaliacao(avaliacao);
