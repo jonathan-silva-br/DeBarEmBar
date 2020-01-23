@@ -1,7 +1,6 @@
 package com.example.debarembar.presenter;
 
 import android.util.Log;
-import android.view.View;
 
 import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.Bebida;
@@ -58,7 +57,7 @@ public class CadastroPresenter {
         bar.setBebidaArrayList(setBebida("Budweiser 343 mL"));
         bar.setBebidaArrayList(setBebida("Becks 330 mL"));
 
-        Log.d("conferindo", bar.getNome());
+        Log.e("conferindo", bar.getNome());
 
         return bar;
     }

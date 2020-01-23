@@ -30,15 +30,35 @@ public class CadastroFragment extends Fragment {
         Button btnCadastrar;
         btnCadastrar = root.findViewById(R.id.btn_cadastrar);
 
-        //Text utilizado para obter o nome do local que está sendo cadastrado.
+        //Text utilizado para obter o nome do local cadastrado
         final TextInputEditText nomeLocal;
         nomeLocal = root.findViewById(R.id.textNomeLocal);
+
+        //Text utilizado para obter a rua do local cadastrado
+        TextInputEditText nomeRua;
+        nomeRua = root.findViewById(R.id.textNomeRua);
+
+        //Text utilizado para obter o número do local cadastrado
+        TextInputEditText numero;
+        numero = root.findViewById(R.id.textNumero);
+
+        //Text utilizado para obter o bairro do local cadastrado
+        TextInputEditText bairro;
+        bairro = root.findViewById(R.id.textBairro);
+
+        //Text utilizado para obter o município do local cadastrado
+        TextInputEditText municipio;
+        municipio = root.findViewById(R.id.textMunicipio);
+
+        //Text utilizado para obter o estado do local cadastrado
+        TextInputEditText estado;
+        estado = root.findViewById(R.id.textEstado);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                repasseInfo(String.valueOf(nomeLocal));
-                Log.d("message", String.valueOf(nomeLocal));
+                repasseInfo(String.valueOf(nomeLocal.getText()));
+                Log.e("message", String.valueOf(nomeLocal.getText()));
 
             }
         });
