@@ -1,39 +1,51 @@
-package com.example.debarembar.presenter;
+package com.example.debarembar.view.ui.listarBar;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.debarembar.R;
 import com.example.debarembar.model.BarTeste;
+import com.example.debarembar.presenter.ListarBaresAdapter;
 
 import java.util.ArrayList;
 
-public class ListarBares extends AppCompatActivity {
+public class ListarBar extends Fragment {
+
+    private SlideshowViewModel slideshowViewModel;
     private RecyclerView mRecycleViewListBar;
     private BarTeste mBar;
     private ListarBaresAdapter mListarBaresAdapter;
     private ArrayList<BarTeste> mBarList;
     private EditText etSearch;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        setContentView(R.layout.activity_listar_bares);
-        mRecycleViewListBar = findViewById(R.id.recycleViewListBar);
-        mRecycleViewListBar.setLayoutManager(new LinearLayoutManager(this));
-        etSearch = findViewById(R.id.etBuscarBar);
 
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_listar_bares, container, false);
+
+        mRecycleViewListBar = root.findViewById(R.id.recycleViewListBar);
+        mRecycleViewListBar.setLayoutManager(new LinearLayoutManager(root.getContext()));
+        etSearch = root.findViewById(R.id.etBuscarBar);
         mBarList = new ArrayList<>();
-        start();
+        start(root.getContext());
         searchBar();
+
+
+        return root;
     }
-    public void start(){
+
+
+    public void start(Context context){
         ArrayList<String> listProduct = new ArrayList<>();
         listProduct.add("Skol");
         listProduct.add("Original");
@@ -48,7 +60,7 @@ public class ListarBares extends AppCompatActivity {
         mBarList.add(new BarTeste("Manezinho", 1 , listProduct2, R.drawable.jontas));
         mBarList.add(new BarTeste("Marilha e Mendonça", 2 , listProduct, R.drawable.jontas));
 
-        mListarBaresAdapter = new ListarBaresAdapter(ListarBares.this, mBarList);
+        mListarBaresAdapter = new ListarBaresAdapter(context, mBarList);
         mRecycleViewListBar.setAdapter(mListarBaresAdapter);
 
         //mListarBaresAdapter.setOnItemClickListiner(ListarBares.this);
@@ -85,4 +97,5 @@ public class ListarBares extends AppCompatActivity {
         //update recyclerview
         mListarBaresAdapter.updateList(filter);
     }
+
 }

@@ -1,4 +1,4 @@
-package com.example.debarembar.view.ui.slideshow;
+package com.example.debarembar.view.ui.listarBar;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

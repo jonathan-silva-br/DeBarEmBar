@@ -3,26 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+<item android:title="Menu">
+    <menu>
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
-    </group>
+            android:id="@+id/btEdit"
+            android:icon="@drawable/perfil"
+            android:title="Editar Perfil" />
 
-    <item android:title="Communicate">
+        <item
+            android:id="@+id/listarBares"
+            android:icon="@drawable/favoritos"
+            android:title="Listar Bar" />
+
+        <item
+            android:id="@+id/btConfig"
+            android:icon="@drawable/config"
+            android:title="Adicionar bar" />
+
+        <item
+            android:id="@+id/btSobre"
+            android:icon="@drawable/sobre"
+            android:title="Sobre" />
+
+        <item
+            android:id="@+id/btSair"
+            android:icon="@drawable/sair"
+            android:title="Sair" />
+
+    </menu>
+</item>
+
+    <item android:title="Comunicação">
         <menu>
             <item
                 android:id="@+id/nav_share"
@@ -32,7 +43,9 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_send" />
+
         </menu>
+
     </item>
 
 </menu>
