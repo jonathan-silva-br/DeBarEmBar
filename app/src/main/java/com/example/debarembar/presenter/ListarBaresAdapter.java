@@ -11,16 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.debarembar.R;
+import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.BarTeste;
 
 import java.util.ArrayList;
 
 public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.ListarBaresAdapterViewHolder> {
     private Context mContext;
-    private ArrayList<BarTeste> mListBar;
+    private ArrayList<Bar> mListBar;
 
     //Construtor
-    public  ListarBaresAdapter(Context context, ArrayList<BarTeste> listBar){
+    public  ListarBaresAdapter(Context context, ArrayList<Bar> listBar){
         mListBar = listBar;
         mContext = context;
     }
@@ -38,12 +39,12 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
     @Override
 
     public void onBindViewHolder(@NonNull ListarBaresAdapterViewHolder holder, int position) {
-        BarTeste bar = mListBar.get(position);
+        Bar bar = mListBar.get(position);
 
         holder.txtListBarName.setText(bar.getNome());
-        holder.txtListBarAvaliacao.setText("Nota: "+bar.getAvaliacao());
-        holder.txtListProduct.setText(bar.getProduct().toString());
-        holder.imgListBar.setImageResource(bar.getImagemCerta());
+        //holder.txtListBarAvaliacao.setText("Nota: "+bar.getAvaliacao());
+        //holder.txtListProduct.setText(bar.getProduct().toString());
+        //holder.imgListBar.setImageResource(bar.getImagemCerta());
     }
 
     @Override
@@ -65,7 +66,7 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
             txtListProduct = itemView.findViewById(R.id.txtListProduct);
         }
     }
-    public void updateList(ArrayList<BarTeste> list){
+    public void updateList(ArrayList<Bar> list){
         mListBar = list;
         notifyDataSetChanged();
     }
