@@ -35,31 +35,31 @@ public class CadastroFragment extends Fragment {
         nomeLocal = root.findViewById(R.id.textNomeLocal);
 
         //Text utilizado para obter a rua do local cadastrado
-        TextInputEditText nomeRua;
+        final TextInputEditText nomeRua;
         nomeRua = root.findViewById(R.id.textNomeRua);
 
         //Text utilizado para obter o número do local cadastrado
-        TextInputEditText numero;
+        final TextInputEditText numero;
         numero = root.findViewById(R.id.textNumero);
 
         //Text utilizado para obter o bairro do local cadastrado
-        TextInputEditText bairro;
+        final TextInputEditText bairro;
         bairro = root.findViewById(R.id.textBairro);
 
         //Text utilizado para obter o município do local cadastrado
-        TextInputEditText municipio;
+        final TextInputEditText municipio;
         municipio = root.findViewById(R.id.textMunicipio);
 
         //Text utilizado para obter o estado do local cadastrado
-        TextInputEditText estado;
+        final TextInputEditText estado;
         estado = root.findViewById(R.id.textEstado);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                repasseInfo(String.valueOf(nomeLocal.getText()));
-                Log.e("message", String.valueOf(nomeLocal.getText()));
-
+                repasseInfo(String.valueOf(nomeLocal.getText()), String.valueOf(nomeRua.getText()),
+                        String.valueOf(numero.getText()), String.valueOf(bairro.getText()),
+                        String.valueOf(municipio.getText()), String.valueOf(estado.getText()));
             }
         });
 
@@ -70,15 +70,15 @@ public class CadastroFragment extends Fragment {
      * repasseInfo()
      *
      * Instancia o objeto CadastroPresenter, permitindo a interação entre model e view.
-     * Utiliza como parâmetro uma String nomeLocal que será utilizada pelo construtor da classe Bar
-     * dentro da classe CadastroPresenter.
+     * Utiliza como parâmetros String nomeLocal, nomeRua, numero, bairro, municipio e estado
+     * que serão utilizados pelo construtor da classe Bar dentro da classe CadastroPresenter.
      *
      * @return retorna o objeto CadastroPresenter
      *
      * @author Jonathan Silva <silva_jonathan@outlook.com.br>
      */
-    public CadastroPresenter repasseInfo(String nomeLocal){
-        CadastroPresenter cadastroPresenter = new CadastroPresenter(nomeLocal);
+    public CadastroPresenter repasseInfo(String nomeLocal, String nomeRua, String numero, String bairro, String municipio, String estado){
+        CadastroPresenter cadastroPresenter = new CadastroPresenter(nomeLocal, nomeRua, numero, bairro, municipio, estado);
         return cadastroPresenter;
     }
 }

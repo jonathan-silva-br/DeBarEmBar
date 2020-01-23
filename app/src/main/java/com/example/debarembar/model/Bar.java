@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  *  Define o modelo Bar que tem como parâmetros o nome, image, classificação, localização e bebidaArrayList.
  *
- *  @since 1.0.0
+ *  @since 2.0.0
  *  @author Jonathan Silva <silva_jonathan@outlook.com.br>
  */
 
@@ -16,28 +16,36 @@ public class Bar {
     private String nome;
     private int image;
     private double classificacao;
-    private String localizacao;
+    private String nomeRua;
+    private String numeroEndereco;
+    private String bairro;
+    private String municipio;
+    private String estado;
     private ArrayList<Bebida> bebidaArrayList;
 
     /**
      * Construtor Bar
      *
      * @param nomeRepassado String Nome do Bar repassado pelo usuário
-     * @param localizacaoRepassada String Localização do Bar repassado pelo usuário
+     * @param nomeRua String Nome da rua do endereço do local
+     * @param numeroEndereco String Número do endereço do local
+     * @param bairro String Nome do bairro do endereço do local
+     * @param municipio String Nome do município do endereço do local
+     * @param estado String Nome do estado (UF) do endereço do local
      *
      * @author Jonathan Silva <silva_jonathan@outlook.com.br>
      */
 
-    public Bar(String nomeRepassado, String localizacaoRepassada){
+    public Bar(String nomeRepassado, String nomeRua, String numeroEndereco, String bairro, String municipio, String estado){
         this.setNome(nomeRepassado);
-        this.setLocalizacao(localizacaoRepassada);
+        this.setNomeRua(nomeRua);
+        this.setNumeroEndereco(numeroEndereco);
+        this.setBairro(bairro);
+        this.setMunicipio(municipio);
+        this.setEstado(estado);
         bebidaArrayList = new ArrayList<>();
     }
 
-    public Bar(String nomeRepassado){
-        this.setNome(nomeRepassado);
-        bebidaArrayList = new ArrayList<>();
-    }
 
     /**
      * getNome
@@ -55,6 +63,96 @@ public class Bar {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    /**
+     * getNomeRua
+     * @return retorna a String nome da rua da classe Bar
+     */
+
+    public String getNomeRua() {
+        return nomeRua;
+    }
+
+    /**
+     * setNomeRua
+     * @param nomeRua define a String nome da rua da classe Bar
+     */
+
+    public void setNomeRua(String nomeRua) {
+        this.nomeRua = nomeRua;
+    }
+
+    /**
+     * getNumeroEndereco
+     * @return retorna a String número do local da classe Bar
+     */
+
+    public String getNumeroEndereco() {
+        return numeroEndereco;
+    }
+
+    /**
+     * setNumeroEndereco
+     * @param numeroEndereco define a String número do local da classe Bar
+     */
+
+    public void setNumeroEndereco(String numeroEndereco) {
+        this.numeroEndereco = numeroEndereco;
+    }
+
+    /**
+     * getBairro
+     * @return retorna a String do nome do bairro do local da classe Bar
+     */
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    /**
+     * setBairro
+     * @param bairro define a String do nome do bairro do local da classe Bar
+     */
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    /**
+     * getMunicipio
+     * @return retorna a String do nome do município do local da classe Bar
+     */
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    /**
+     * setMunicipio
+     * @param municipio define a String do nome do município do local da classe Bar
+     */
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    /**
+     * getEstado
+     * @return retorna a String do nome do estado (UF) do local da classe Bar
+     */
+
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * setEstado
+     * @param estado define a String do nome do estado (UF) do local da classe Bar
+     */
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     /**
@@ -93,23 +191,6 @@ public class Bar {
         this.classificacao = classificacao;
     }
 
-    /**
-     * getLocalizacao
-     * @return retorna a String localizacao da classe Bar
-     */
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    /**
-     * setImage
-     * @param localizacao define a String localizacao da classe Bar
-     */
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
 
     /**
      * getBebidaArrayList
