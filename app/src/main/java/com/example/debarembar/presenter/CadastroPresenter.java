@@ -122,9 +122,16 @@ public class CadastroPresenter {
         }
 
         /**
-         * Log.e verifica no terminal se a informação está sendo repassada.
+         * Log.e verifica no terminal se as informações está sendo repassada.
          */
-        Log.e("conferindo", bar.getNome());
+        Log.e("Confere NomeLocal", bar.getNome());
+        Log.e("Confere NomeRua", bar.getNomeRua());
+        Log.e("Confere Numero", bar.getNumeroEndereco());
+        Log.e("Confere Bairro", bar.getBairro());
+        Log.e("Confere Municipio", bar.getMunicipio());
+        Log.e("Confere Estado", bar.getEstado());
+        Log.e("Confere Classificacao", String.valueOf(bar.getClassificacao()));
+        Log.e("Confere Stella", String.valueOf(bar.getSize()));
     }
 
     /**
