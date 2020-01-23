@@ -55,19 +55,22 @@ public class AdapterContatos extends RecyclerView.Adapter<AdapterContatos.MyView
          * @param itemView que é um item, utilizado para conseguir fazer
          *                 interações com esta view
          */
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView){
             super(itemView);
-
             lblNomeContato = itemView.findViewById(R.id.lblNomeContato);
             itemView.setOnClickListener(this);
-
         }
 
 
         @Override
         public void onClick(View v) {
 
+            FuncoesSms sms = new FuncoesSms();
+            Contatos contato = listaContatos.get(getAdapterPosition());
 
+            String mensagem = "app@barembar:";
+
+            sms.SendSms(mContext,contato.getNumeroContato(),mensagem);
 
         }
     }
