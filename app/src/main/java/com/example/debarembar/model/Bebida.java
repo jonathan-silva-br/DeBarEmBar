@@ -5,26 +5,28 @@ package com.example.debarembar.model;
  *
  *  Define o modelo Bebida que tem como parâmetros o nome, valorUnitario e imagem.
  *
- *  @since 1.0.0
+ *  @since 1.1.0
  *  @author Jonathan Silva <silva_jonathan@outlook.com.br>
  */
 
 public class Bebida {
 
     private String nome;
-    private double valorUnitario;
+    private String valorUnitario;
     private int imagem;
 
     /**
      * Construtor Bebida
      *
      * @param nomeRepassado String Nome da Bebida repassado pelo usuário
+     * @param valorUnitario String Valor da Bebida repassado pelo usuário
      *
      * @author Jonathan Silva <silva_jonathan@outlook.com.br>
      */
 
-    public Bebida(String nomeRepassado){
+    public Bebida(String nomeRepassado, String valorUnitario){
         this.setNome(nomeRepassado);
+        this.setValorUnitario(valorUnitario);
     }
 
     /**
@@ -50,7 +52,7 @@ public class Bebida {
      * @return retorna o double valorUnitario da classe Bebida
      */
 
-    public double getValorUnitario() {
+    public String getValorUnitario() {
         return valorUnitario;
     }
 
@@ -59,7 +61,7 @@ public class Bebida {
      * @param valorUnitario define o double valorUnitario da classe Bebida
      */
 
-    public void setValorUnitario(double valorUnitario) {
+    public void setValorUnitario(String valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 

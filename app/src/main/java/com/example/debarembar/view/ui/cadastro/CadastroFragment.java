@@ -58,39 +58,39 @@ public class CadastroFragment extends Fragment {
         estado = root.findViewById(R.id.textEstado);
 
         //RatingBar utilizado para obter a classificação do local cadastrado
-        RatingBar classificacao;
+        final RatingBar classificacao;
         classificacao = root.findViewById(R.id.rb_classificacao);
 
         //CheckBox utilizado para setar a informação de existência da cerveja Stella Artois no local cadastrado
-        CheckBox checkStella;
+        final CheckBox checkStella;
         checkStella = root.findViewById(R.id.checkBoxStellaArtois);
 
         //CheckBox utilizado para setar a informação de existência da cerveja Corona no local cadastrado
-        CheckBox checkCorona;
+        final CheckBox checkCorona;
         checkCorona = root.findViewById(R.id.checkBoxCorona);
 
         //CheckBox utilizado para setar a informação de existência da cerveja Budweiser no local cadastrado
-        CheckBox checkBudweiser;
+        final CheckBox checkBudweiser;
         checkBudweiser = root.findViewById(R.id.checkBoxBudweiser);
 
         //CheckBox utilizado para setar a informação de existência da cerveja Becks no local cadastrado
-        CheckBox checkBecks;
+        final CheckBox checkBecks;
         checkBecks = root.findViewById(R.id.checkBoxBecks);
 
         //EditText utilizado para obter o valorUnitario da cerveja Stella Artois
-        EditText valorStella;
+        final EditText valorStella;
         valorStella = root.findViewById(R.id.editValorStellaArtois);
 
         //EditText utilizado para obter o valorUnitario da cerveja Corona
-        EditText valorCorona;
+        final EditText valorCorona;
         valorCorona = root.findViewById(R.id.editValorCorona);
 
         //EditText utilizado para obter o valorUnitario da cerveja Budweiser
-        EditText valorBudweiser;
+        final EditText valorBudweiser;
         valorBudweiser = root.findViewById(R.id.editValorBudweiser);
 
         //EditText utilizado para obter o valorUnitario da cerveja Becks
-        EditText valorBecks;
+        final EditText valorBecks;
         valorBecks = root.findViewById(R.id.editValorBecks);
 
 
@@ -99,7 +99,11 @@ public class CadastroFragment extends Fragment {
             public void onClick(View v) {
                 repasseInfo(String.valueOf(nomeLocal.getText()), String.valueOf(nomeRua.getText()),
                         String.valueOf(numero.getText()), String.valueOf(bairro.getText()),
-                        String.valueOf(municipio.getText()), String.valueOf(estado.getText()));
+                        String.valueOf(municipio.getText()), String.valueOf(estado.getText()),
+                        classificacao.getRating(), checkStella.isChecked(), checkCorona.isChecked(),
+                        checkBudweiser.isChecked(), checkBecks.isChecked(),
+                        String.valueOf(valorStella.getText()), String.valueOf(valorCorona.getText()),
+                        String.valueOf(valorBudweiser.getText()), String.valueOf(valorBecks.getText()));
             }
         });
 
@@ -110,15 +114,24 @@ public class CadastroFragment extends Fragment {
      * repasseInfo()
      *
      * Instancia o objeto CadastroPresenter, permitindo a interação entre model e view.
-     * Utiliza como parâmetros String nomeLocal, nomeRua, numero, bairro, municipio e estado
-     * que serão utilizados pelo construtor da classe Bar dentro da classe CadastroPresenter.
+     * Utiliza como parâmetros String nomeLocal, nomeRua, numero, bairro, municipio, estado,
+     * float classificacao, boolean checkStella, checkCorona, checkBudweiser, checkBecks,
+     * String valorStella, valorCorona, valorBudweiser, valorBecks que serão utilizados pelo
+     * construtor da classe Bar dentro da classe CadastroPresenter.
      *
      * @return retorna o objeto CadastroPresenter
      *
      * @author Jonathan Silva <silva_jonathan@outlook.com.br>
      */
-    public CadastroPresenter repasseInfo(String nomeLocal, String nomeRua, String numero, String bairro, String municipio, String estado){
-        CadastroPresenter cadastroPresenter = new CadastroPresenter(nomeLocal, nomeRua, numero, bairro, municipio, estado);
+    public CadastroPresenter repasseInfo(String nomeLocal, String nomeRua, String numero, String bairro,
+                                         String municipio, String estado, float classificacao,
+                                         boolean checkStella, boolean checkCorona, boolean checkBudweiser, boolean checkBecks,
+                                         String valorStella, String valorCorona, String valorBudweiser, String valorBecks){
+
+        CadastroPresenter cadastroPresenter = new CadastroPresenter(nomeLocal, nomeRua, numero,
+                bairro, municipio, estado, classificacao, checkStella, checkCorona, checkBudweiser, checkBecks,
+                valorStella, valorCorona, valorBudweiser, valorBecks);
+
         return cadastroPresenter;
     }
 }

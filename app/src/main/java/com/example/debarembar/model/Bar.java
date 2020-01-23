@@ -32,17 +32,21 @@ public class Bar {
      * @param bairro String Nome do bairro do endereço do local
      * @param municipio String Nome do município do endereço do local
      * @param estado String Nome do estado (UF) do endereço do local
+     * @param classificacao flaot Classificação ou avaliação do local
      *
      * @author Jonathan Silva <silva_jonathan@outlook.com.br>
      */
 
-    public Bar(String nomeRepassado, String nomeRua, String numeroEndereco, String bairro, String municipio, String estado){
+    public Bar(String nomeRepassado, String nomeRua, String numeroEndereco, String bairro,
+               String municipio, String estado, float classificacao){
+
         this.setNome(nomeRepassado);
         this.setNomeRua(nomeRua);
         this.setNumeroEndereco(numeroEndereco);
         this.setBairro(bairro);
         this.setMunicipio(municipio);
         this.setEstado(estado);
+        this.setClassificacao(classificacao);
         bebidaArrayList = new ArrayList<>();
     }
 
