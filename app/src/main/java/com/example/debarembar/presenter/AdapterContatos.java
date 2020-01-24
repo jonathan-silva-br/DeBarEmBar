@@ -68,7 +68,7 @@ public class AdapterContatos extends RecyclerView.Adapter<AdapterContatos.MyView
             FuncoesSms sms = new FuncoesSms();
             Contatos contato = listaContatos.get(getAdapterPosition());
 
-            String mensagem = "app@barembar:";
+            String mensagem = "app@barembar====";
 
             sms.SendSms(mContext,contato.getNumeroContato(),mensagem);
 
