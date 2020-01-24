@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.Bebida;
 
+import java.util.ArrayList;
+
 /**
  *  Classe CadastroPresenter - coordena a interação entre model e view
  *
@@ -16,6 +18,7 @@ import com.example.debarembar.model.Bebida;
  */
 
 public class CadastroPresenter {
+    public static ArrayList<Bar> listBar = new ArrayList<>();
 
     /**
      * Construtor CadastroPresenter
@@ -39,6 +42,7 @@ public class CadastroPresenter {
      * @param valorBecks String Valor dessa bebida no local
      *
      * @author Jonathan Silva <silva_jonathan@outlook.com.br>
+     *
      */
 
     public CadastroPresenter(String nomeLocal, String nomeRua, String numero, String bairro,
@@ -49,6 +53,10 @@ public class CadastroPresenter {
         setBar(nomeLocal, nomeRua, numero, bairro, municipio,
                 estado, classificacao, checkStella, checkCorona, checkBudweiser, checkBecks,
                 valorStella, valorCorona, valorBudweiser, valorBecks);
+    }
+
+    public CadastroPresenter(){
+
     }
 
     /**
@@ -121,6 +129,9 @@ public class CadastroPresenter {
             bar.setBebidaArrayList(setBebida("Becks 330 mL", valorBecks));
         }
 
+        listBar.add(bar);
+        Log.e("tamanho", String.valueOf(listBar.size()));
+
         /**
          * Log.e verifica no terminal se as informações está sendo repassada.
          */
@@ -134,6 +145,9 @@ public class CadastroPresenter {
         Log.e("Confere Stella", String.valueOf(bar.getSize()));
     }
 
+    public ArrayList<Bar> addBar(){
+        return listBar;
+    }
     /**
      * setBebida
      *

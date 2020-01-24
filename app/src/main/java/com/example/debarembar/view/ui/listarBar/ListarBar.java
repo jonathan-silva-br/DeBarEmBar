@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.debarembar.R;
+import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.BarTeste;
+import com.example.debarembar.model.Bebida;
+import com.example.debarembar.presenter.CadastroPresenter;
 import com.example.debarembar.presenter.ListarBaresAdapter;
 
 import java.util.ArrayList;
@@ -26,7 +30,8 @@ public class ListarBar extends Fragment {
     private RecyclerView mRecycleViewListBar;
     private BarTeste mBar;
     private ListarBaresAdapter mListarBaresAdapter;
-    private ArrayList<BarTeste> mBarList;
+    private ArrayList<Bar> mBarList;
+    CadastroPresenter cadastroPresenter;
     private EditText etSearch;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,15 +42,14 @@ public class ListarBar extends Fragment {
         mRecycleViewListBar.setLayoutManager(new LinearLayoutManager(root.getContext()));
         etSearch = root.findViewById(R.id.etBuscarBar);
         mBarList = new ArrayList<>();
+
         start(root.getContext());
         searchBar();
-
 
         return root;
     }
 
-
-    public void start(Context context){
+    public void start(Context context) {
         ArrayList<String> listProduct = new ArrayList<>();
         listProduct.add("Skol");
         listProduct.add("Original");
@@ -55,18 +59,25 @@ public class ListarBar extends Fragment {
         listProduct2.add("LOKAL");
         listProduct2.add("KAISE QUENTE");
 
-        mBarList.add(new BarTeste("Bar do gusto", 2 , listProduct, R.drawable.jontas));
-        mBarList.add(new BarTeste("Moutilas", 5 , listProduct2, R.drawable.jontas));
-        mBarList.add(new BarTeste("Manezinho", 1 , listProduct2, R.drawable.jontas));
-        mBarList.add(new BarTeste("Marilha e Mendonça", 2 , listProduct, R.drawable.jontas));
+        mBarList.add(new Bar("Bar do gusto", "Rua tamarindo", "22", "Centro", "Blumenau", "SC", 2));
+        mBarList.add(new Bar("BMoutilas", "Rua outra", "222", "2 de setembro", "Gaspar", "PR", 4));
 
         mListarBaresAdapter = new ListarBaresAdapter(context, mBarList);
         mRecycleViewListBar.setAdapter(mListarBaresAdapter);
 
-        //mListarBaresAdapter.setOnItemClickListiner(ListarBares.this);
+        verifica(CadastroPresenter.listBar);
+
     }
 
-    public void searchBar(){
+    /**
+     * searchBar()
+     *
+     * @filter - perccorre um arrayList<Bar> e faz conparacao. Se sequencia de caracteres contem no ArrayList<Bar>.
+     * depois de percorrer o ArrayList<Bar>, o adapter é atualizado com o notifyDataSetChanged contido no metodo @updateList
+     *
+     * @author Guilherme Lamim <guilherme.lamim96@gmail.com.br>
+     */
+    public void searchBar() {
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -85,17 +96,26 @@ public class ListarBar extends Fragment {
         });
     }
 
-    void filter(String text){
-        ArrayList<BarTeste> filter = new ArrayList();
-        for(BarTeste bar: mBarList){
+    void filter(String text) {
+        ArrayList<Bar> filter = new ArrayList();
+        for (Bar bar : mBarList) {
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
-            if(bar.getNome().toLowerCase().contains(text)){
+            if (bar.getNome().toLowerCase().contains(text)) {
                 filter.add(bar);
             }
         }
         //update recyclerview
         mListarBaresAdapter.updateList(filter);
+    }
+
+    //Verificar se tem ago no arrayList<Bar>
+    public void verifica(ArrayList<Bar> listBar) {
+
+        Log.e("VLR_array", String.valueOf(listBar.size()));
+       if (listBar.size() != 0) {
+           mListarBaresAdapter.addmListBar(listBar);
+       }
     }
 
 }

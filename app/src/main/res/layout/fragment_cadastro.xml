@@ -20,12 +20,32 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textTituloView"
+                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="Cadastrar Local"
-                android:textSize="30dp" />
+                android:text="Cadastre o barzinho,"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="40dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="e bora tomar uma :)"
+                android:textColor="#0F2794"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -143,7 +163,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_marginRight="60dp"
-                            android:inputType="textPersonName"
+                            android:inputType="number"
                             android:textSize="10dp" />
 
                         <EditText
@@ -151,7 +171,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_marginRight="60dp"
-                            android:inputType="textPersonName"
+                            android:inputType="number"
                             android:textSize="10dp" />
 
                         <EditText
@@ -159,7 +179,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_marginRight="60dp"
-                            android:inputType="textPersonName"
+                            android:inputType="number"
                             android:textSize="10dp" />
 
                         <EditText
@@ -167,7 +187,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_marginRight="60dp"
-                            android:inputType="textPersonName"
+                            android:inputType="number"
                             android:textSize="10dp" />
                     </LinearLayout>
                 </GridLayout>
@@ -186,72 +206,116 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="15dp">
 
-                <com.google.android.material.textfield.TextInputLayout
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Inserir endereço do estabelecimento" />
+
+                <TextView
+                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Insira seu cep" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textNomeRua"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="Informe a Rua" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/etCadastroBarCep"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CEP"
+                    android:inputType="number|textPersonName"
+                    android:maxLength="8" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textNumero"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="Informe o Número" />
-                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btCadastroBarPreencherFrag"
+                    android:layout_width="181dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_rounded"
+                    android:text="Preencher campos" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <TextView
+                    android:id="@+id/textView7"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Número" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textBairro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="Informe o Bairro" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/etCadastroBarNumero"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Número"
+                    android:inputType="number" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textMunicipio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="Informe o Município" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <TextView
+                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Estado" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textEstado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="Informe o Estado" />
-                </com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/etCadastroBarEstadoFrag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Estado"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Cidade" />
+
+                <EditText
+                    android:id="@+id/etCadastroBarCidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Cidade"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Bairro" />
+
+                <EditText
+                    android:id="@+id/etCadastroBarBairro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Bairro"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Logradouro" />
+
+                <EditText
+                    android:id="@+id/etCadastroBarLogradouro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Logradouro"
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
             <LinearLayout
