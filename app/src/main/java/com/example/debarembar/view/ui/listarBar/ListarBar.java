@@ -18,6 +18,7 @@ import com.example.debarembar.R;
 import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.BarTeste;
 import com.example.debarembar.model.Bebida;
+import com.example.debarembar.presenter.CadastroPresenter;
 import com.example.debarembar.presenter.ListarBaresAdapter;
 
 import java.util.ArrayList;
@@ -29,7 +30,8 @@ public class ListarBar extends Fragment {
     private BarTeste mBar;
     private ListarBaresAdapter mListarBaresAdapter;
     private ArrayList<Bar> mBarList;
-
+    CadastroPresenter cadastroPresenter;
+    ArrayList<CadastroPresenter> cadastroPresentersList = new ArrayList<>();
     private EditText etSearch;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,14 +42,14 @@ public class ListarBar extends Fragment {
         mRecycleViewListBar.setLayoutManager(new LinearLayoutManager(root.getContext()));
         etSearch = root.findViewById(R.id.etBuscarBar);
         mBarList = new ArrayList<>();
+
         start(root.getContext());
         searchBar();
-
 
         return root;
     }
 
-    public void start(Context context){
+    public void start(Context context) {
         ArrayList<String> listProduct = new ArrayList<>();
         listProduct.add("Skol");
         listProduct.add("Original");
@@ -57,19 +59,23 @@ public class ListarBar extends Fragment {
         listProduct2.add("LOKAL");
         listProduct2.add("KAISE QUENTE");
 
-        ArrayList<Bebida> listBebidasPreSetadas = new ArrayList<>();
-
-
         mBarList.add(new Bar("Bar do gusto", "Rua tamarindo", "22", "Centro", "Blumenau", "SC", 2));
         mBarList.add(new Bar("BMoutilas", "Rua outra", "222", "2 de setembro", "Gaspar", "PR", 4));
 
         mListarBaresAdapter = new ListarBaresAdapter(context, mBarList);
         mRecycleViewListBar.setAdapter(mListarBaresAdapter);
 
-        //mListarBaresAdapter.setOnItemClickListiner(ListarBares.this);
     }
 
-    public void searchBar(){
+    /**
+     * searchBar()
+     *
+     * @filter - perccorre um arrayList<Bar> e faz conparacao. Se sequencia de caracteres contem no ArrayList<Bar>.
+     * depois de percorrer o ArrayList<Bar>, o adapter é atualizado com o notifyDataSetChanged contido no metodo @updateList
+     *
+     * @author Guilherme Lamim <guilherme.lamim96@gmail.com.br>
+     */
+    public void searchBar() {
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -88,17 +94,23 @@ public class ListarBar extends Fragment {
         });
     }
 
-    void filter(String text){
+    void filter(String text) {
         ArrayList<Bar> filter = new ArrayList();
-        for(Bar bar: mBarList){
+        for (Bar bar : mBarList) {
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
-            if(bar.getNome().toLowerCase().contains(text)){
+            if (bar.getNome().toLowerCase().contains(text)) {
                 filter.add(bar);
             }
         }
         //update recyclerview
         mListarBaresAdapter.updateList(filter);
     }
+
+    public void cadastrando(CadastroPresenter cadastroPresenter) {
+        ArrayList<CadastroPresenter> cadastroPresentersList = null;
+        cadastroPresentersList.add(cadastroPresenter);
+    }
+
 
 }

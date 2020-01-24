@@ -24,21 +24,21 @@
             android:id="@+id/nomeUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="2dp"
             android:gravity="center"
             android:text="User Name"
-            android:textColor="#757575"
+            android:textColor="#ffff"
             android:textSize="25dp"
             android:textStyle="normal" />
 
         <TextView
             android:id="@+id/telefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="91dp"
+            android:layout_height="18dp"
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="33324665"
-            android:textColor="#757575"
+            android:textColor="#ffff"
             android:textSize="16sp"
             android:textStyle="normal" />
 

@@ -205,7 +205,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="5000dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="15dp">
 
@@ -226,7 +226,7 @@
                     android:text="Insira seu cep" />
 
                 <EditText
-                    android:id="@+id/etCadastroBarCEP"
+                    android:id="@+id/etCadastroBarCep"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -235,7 +235,7 @@
                     android:maxLength="8" />
 
                 <Button
-                    android:id="@+id/btCadastroBarPreencher"
+                    android:id="@+id/btCadastroBarPreencherFrag"
                     android:layout_width="181dp"
                     android:layout_height="36dp"
                     android:layout_marginTop="5dp"
