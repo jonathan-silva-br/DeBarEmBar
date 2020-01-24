@@ -27,6 +27,18 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
         mContext = context;
     }
 
+    public void addmListBar(ArrayList<Bar> arrayList){
+
+        for (int i = 0; i < arrayList.size(); i++){
+            if(!mListBar.contains(arrayList.get(i))){
+                mListBar.add(arrayList.get(i));
+            }
+
+        }
+        notifyDataSetChanged();
+
+    }
+
     @NonNull
     @Override
     //Definindo onde vai ser inflado a lista com cardView
@@ -41,6 +53,7 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
 
     public void onBindViewHolder(@NonNull ListarBaresAdapterViewHolder holder, int position) {
         Bar bar = mListBar.get(position);
+
 
         holder.txtNomeBar.setText(bar.getNome());
         holder.txtCidadeEstado.setText("Cidade: " + bar.getMunicipio() + " / " + bar.getEstado());
@@ -79,4 +92,6 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
         mListBar = list;
         notifyDataSetChanged();
     }
+
+
 }

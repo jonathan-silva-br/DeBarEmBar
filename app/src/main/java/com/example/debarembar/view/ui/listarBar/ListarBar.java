@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,6 @@ public class ListarBar extends Fragment {
     private ListarBaresAdapter mListarBaresAdapter;
     private ArrayList<Bar> mBarList;
     CadastroPresenter cadastroPresenter;
-    ArrayList<CadastroPresenter> cadastroPresentersList = new ArrayList<>();
     private EditText etSearch;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -64,6 +64,8 @@ public class ListarBar extends Fragment {
 
         mListarBaresAdapter = new ListarBaresAdapter(context, mBarList);
         mRecycleViewListBar.setAdapter(mListarBaresAdapter);
+
+        verifica(CadastroPresenter.listBar);
 
     }
 
@@ -107,10 +109,13 @@ public class ListarBar extends Fragment {
         mListarBaresAdapter.updateList(filter);
     }
 
-    public void cadastrando(CadastroPresenter cadastroPresenter) {
-        ArrayList<CadastroPresenter> cadastroPresentersList = null;
-        cadastroPresentersList.add(cadastroPresenter);
-    }
+    //Verificar se tem ago no arrayList<Bar>
+    public void verifica(ArrayList<Bar> listBar) {
 
+        Log.e("VLR_array", String.valueOf(listBar.size()));
+       if (listBar.size() != 0) {
+           mListarBaresAdapter.addmListBar(listBar);
+       }
+    }
 
 }

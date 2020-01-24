@@ -84,4 +84,12 @@ public class Bebida {
     }
 
 
+    public String getNomeValor(){
+        return "nome: "+getNome()+" / "+getValorUnitario();
+    }
+
+    @Override
+    public String toString() {
+        return "Bebida: "+nome +"  ,R$" + valorUnitario;
+    }
 }

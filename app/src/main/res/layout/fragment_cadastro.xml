@@ -265,7 +265,7 @@
                     android:text="Estado" />
 
                 <EditText
-                    android:id="@+id/etCadastroBarEstado"
+                    android:id="@+id/etCadastroBarEstadoFrag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
