@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.debarembar.R;
 import com.example.debarembar.model.Bar;
-import com.example.debarembar.model.BarTeste;
 
 import java.util.ArrayList;
 

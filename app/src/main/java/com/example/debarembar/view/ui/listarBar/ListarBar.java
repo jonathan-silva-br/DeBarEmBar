@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.debarembar.R;
 import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.BarTeste;
-import com.example.debarembar.model.Bebida;
 import com.example.debarembar.presenter.CadastroPresenter;
 import com.example.debarembar.presenter.ListarBaresAdapter;
 

@@ -15,13 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "293245908100-msgrv56b46sgsseudjipvbdoikoq4oos.apps.googleusercontent.com",
+          "client_id": "293245908100-t98kio3euu440ccorppp66bpfr37h463.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.debarembar",
-            "certificate_hash": "18342f1c6bb3d352426682b4d8fb18b47e0687ff"
+            "certificate_hash": "f4b573c01058b935d9075d31aa916d515eda8c3f"
           }
         },
+
+
         {
           "client_id": "293245908100-dengpnkjnurolv7rhm2quega55glkqqp.apps.googleusercontent.com",
           "client_type": 3
