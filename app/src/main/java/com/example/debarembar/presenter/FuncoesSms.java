@@ -37,6 +37,10 @@ public class FuncoesSms {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(numero,null,mensagem,null,null);
             Toast.makeText(c, "Compartilhado!", Toast.LENGTH_SHORT).show();
+
+
+
+
         }else{
             Toast.makeText(c, "Não foi possível enviar o SMS", Toast.LENGTH_SHORT).show();
         }

@@ -1,6 +1,7 @@
 package com.example.debarembar.view.ui.listarBar;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,6 +21,7 @@ import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.BarTeste;
 import com.example.debarembar.presenter.CadastroPresenter;
 import com.example.debarembar.presenter.ListarBaresAdapter;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -32,16 +34,17 @@ public class ListarBar extends Fragment {
     private ArrayList<Bar> mBarList;
     CadastroPresenter cadastroPresenter;
     private EditText etSearch;
+    private SharedPreferences preferences;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_listar_bares, container, false);
 
+        preferences = root.getContext().getSharedPreferences("json_bank",Context.MODE_PRIVATE);
         mRecycleViewListBar = root.findViewById(R.id.recycleViewListBar);
         mRecycleViewListBar.setLayoutManager(new LinearLayoutManager(root.getContext()));
         etSearch = root.findViewById(R.id.etBuscarBar);
         mBarList = new ArrayList<>();
-
         start(root.getContext());
         searchBar();
 
@@ -49,22 +52,54 @@ public class ListarBar extends Fragment {
     }
 
     public void start(Context context) {
-        ArrayList<String> listProduct = new ArrayList<>();
-        listProduct.add("Skol");
-        listProduct.add("Original");
-        ArrayList<String> listProduct2 = new ArrayList<>();
-        listProduct2.add("Budzin");
-        listProduct2.add("Corona");
-        listProduct2.add("LOKAL");
-        listProduct2.add("KAISE QUENTE");
 
-        mBarList.add(new Bar("Bar do gusto", "Rua tamarindo", "22", "Centro", "Blumenau", "SC", 2));
-        mBarList.add(new Bar("BMoutilas", "Rua outra", "222", "2 de setembro", "Gaspar", "PR", 4));
+        String jsonObj = preferences.getString("barSMS","");
+        String listaBares = preferences.getString("listaBares","");
 
-        mListarBaresAdapter = new ListarBaresAdapter(context, mBarList);
+        selectBares(listaBares);
+
+        if(!jsonObj.equals("")){
+
+            Gson gson = new Gson();
+            Bar bar = gson.fromJson(jsonObj,Bar.class);
+
+            for(int i = 0; i < mBarList.size(); i++){
+                if(!mBarList.contains(bar)){
+                    mBarList.add(bar);
+                }
+            }
+        }
+
+        mListarBaresAdapter = new ListarBaresAdapter(context, mBarList,preferences);
         mRecycleViewListBar.setAdapter(mListarBaresAdapter);
-
         verifica(CadastroPresenter.listBar);
+    }
+
+    /**
+     * Método feito para pegar os valores do sharedPreferences e colocar na lista
+     *
+     *
+     *
+     * @param listaBares
+     */
+    private void selectBares(String listaBares){
+
+        if(!listaBares.equals("")){
+
+            String[] bares = listaBares.split("====");
+
+            for(int i = 0; i< bares.length;i++){
+
+
+                Gson gson = new Gson();
+                Bar bar = gson.fromJson(bares[i],Bar.class);
+                mBarList.add(bar);
+
+
+            }
+
+        }
+
 
     }
 
