@@ -99,7 +99,8 @@ public class CadastroPresenter {
          * e então repassa essas informações para o método setBebida().
           */
         if(checkStella == true && valorStella != null){
-            bar.setBebidaArrayList(setBebida("Stella Artois 550 mL", valorStella));
+            Bebida stella = new Bebida("Stella Artois 550 mL", valorStella);
+            bar.setBebidaArrayList(stella);
         }
 
         /**
@@ -108,7 +109,8 @@ public class CadastroPresenter {
          */
 
         if(checkCorona == true && valorCorona != null){
-            bar.setBebidaArrayList(setBebida("Corona 355 mL", valorCorona));
+            Bebida corona = new Bebida("Corona 355 mL", valorCorona);
+            bar.setBebidaArrayList(corona);
         }
 
         /**
@@ -117,7 +119,8 @@ public class CadastroPresenter {
          */
 
         if(checkBudweiser == true && valorBudweiser != null){
-            bar.setBebidaArrayList(setBebida("Budweiser 343 mL", valorBudweiser));
+            Bebida budweiser = new Bebida("Budweiser 343 mL", valorBudweiser);
+            bar.setBebidaArrayList(budweiser);
         }
 
         /**
@@ -126,7 +129,8 @@ public class CadastroPresenter {
          */
 
         if(checkBecks == true && valorBecks != null){
-            bar.setBebidaArrayList(setBebida("Becks 330 mL", valorBecks));
+            Bebida becks = new Bebida("Becks 330 mL", valorBecks);
+            bar.setBebidaArrayList(becks);
         }
 
         listBar.add(bar);
@@ -143,29 +147,8 @@ public class CadastroPresenter {
         Log.e("Confere Estado", bar.getEstado());
         Log.e("Confere Classificacao", String.valueOf(bar.getClassificacao()));
         Log.e("Confere Stella", String.valueOf(bar.getSize()));
+        Log.e("Confere", String.valueOf(bar.getBebidaArrayList()));
     }
-
-    public ArrayList<Bar> addBar(){
-        return listBar;
-    }
-    /**
-     * setBebida
-     *
-     * Método que instancia o objeto Bebida, repassando como parâmetro uma String nomeBebida e valorBebida
-     * para o construtor da classe Bebida.
-     *
-     * @param nomeBebida String Nome da bebida
-     * @param valorBebida String Valor da bebida
-     * @return retorna o objeto bebida
-     *
-     * @author Jonathan Silva <silva_jonathan@outlook.com.br>
-     */
-
-    public Bebida setBebida(String nomeBebida, String valorBebida){
-        Bebida bebida = new Bebida(nomeBebida, valorBebida);
-        return bebida;
-    }
-
 
 
 }
