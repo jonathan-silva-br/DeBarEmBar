@@ -1,29 +1,27 @@
-package com.example.debarembar.view.ui.compartilhar;
+package com.example.debarembar.view;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.debarembar.R;
+import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.Contatos;
 import com.example.debarembar.presenter.AdapterContatos;
+import com.example.debarembar.presenter.ListarBaresAdapter;
 
 import java.util.ArrayList;
 
 
 /**
- * Fragmento responsável pelas ações da tela Compartilhar
+ * Classe responsável pelas ações da tela Compartilhar
  *
  * Neste fragmento temos o recycler view, o adapter e uma lista com os contatos
  *
@@ -32,12 +30,12 @@ import java.util.ArrayList;
  * no array do adapter
  *
  * @author Matheus Geiser <matheusgeiser@gmail.com>
- * @since 1.0.0
+ * @since 1.1.0
  *
  */
-public class CompartilharFragment extends Fragment {
+public class ContatosActivity extends AppCompatActivity {
 
-       /**
+    /**
      * Variável global que vai receber o recyclerView
      */
     private RecyclerView recyclerView;
@@ -54,29 +52,30 @@ public class CompartilharFragment extends Fragment {
      */
     private AdapterContatos adapter;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_contatos);
 
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
+        Bar bar = ListarBaresAdapter.bar;
 
         //Array
         listaContatos = new ArrayList<>();
 
         //Chamando o adapter
+        adapter = new AdapterContatos(listaContatos, this, bar);
 
         //Configurando RecyclerView
-        recyclerView = root.findViewById(R.id.rvContatos);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(root.getContext());
+        recyclerView = findViewById(R.id.rvContatos);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(root.getContext(), LinearLayout.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.setAdapter(adapter);
 
-        getContactList(root.getContext());
+        getContactList(this);
 
-        return root;
     }
-
     /**
      *
      * <p>Método que pega os contatos do celular e coloca no array do RecyclerView</p>
@@ -95,7 +94,6 @@ public class CompartilharFragment extends Fragment {
      * @param context - Precisamos do contexto da aplicação para realizar a
      *                pesquisa dos contatos
      */
-
     private void getContactList(Context context){
 
         Cursor phones = context.getContentResolver().query(
@@ -109,9 +107,11 @@ public class CompartilharFragment extends Fragment {
             Contatos contatos = new Contatos(phone,name);
 
             listaContatos.add(contatos);
-            adapter.notifyDataSetChanged();
 
         }
+
+
+        adapter.notifyDataSetChanged();
 
     }
 }

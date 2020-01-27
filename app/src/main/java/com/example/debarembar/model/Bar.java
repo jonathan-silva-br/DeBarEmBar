@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 
 public class Bar {
-
     private String nome;
     private int image;
     private double classificacao;
@@ -48,6 +47,20 @@ public class Bar {
         this.setEstado(estado);
         this.setClassificacao(classificacao);
         bebidaArrayList = new ArrayList<>();
+    }
+
+    public Bar(String nomeRepassado, String nomeRua, String numeroEndereco, String bairro,
+               String municipio, String estado, float classificacao, int image){
+
+        this.setNome(nomeRepassado);
+        this.setNomeRua(nomeRua);
+        this.setNumeroEndereco(numeroEndereco);
+        this.setBairro(bairro);
+        this.setMunicipio(municipio);
+        this.setEstado(estado);
+        this.setClassificacao(classificacao);
+        bebidaArrayList = new ArrayList<>();
+        this.setImage(image);
     }
 
 

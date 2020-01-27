@@ -1,12 +1,8 @@
 package com.example.debarembar.view.ui.cadastro;
 
-import android.text.Layout;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastroViewModel extends ViewModel {
 

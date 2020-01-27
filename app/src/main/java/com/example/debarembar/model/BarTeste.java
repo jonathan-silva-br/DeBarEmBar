@@ -1,7 +1,5 @@
 package com.example.debarembar.model;
 
-import android.media.ImageReader;
-
 import java.util.ArrayList;
 
 public class BarTeste {

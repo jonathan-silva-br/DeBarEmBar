@@ -1,9 +1,5 @@
 package com.example.debarembar.model;
 
-import com.example.debarembar.R;
-
-import java.util.ArrayList;
-
 public class ProdutosAmbev {
     private String name;
     private int imageProduct;
