@@ -1,18 +1,13 @@
 package com.example.debarembar.view;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-
 import com.example.debarembar.R;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.fragment_gallery);
 
         preferencias = getSharedPreferences("user_preferences", MODE_PRIVATE);
         String telefone = preferencias.getString("telefone", "");
@@ -42,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
                     RC_SIGN_IN);
         }else{
 
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-            finish();
+            startActivity(new Intent(LoginActivity.this,LoginActivity.class));
+
         }
 
 
