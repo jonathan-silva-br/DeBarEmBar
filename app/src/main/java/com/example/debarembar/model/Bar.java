@@ -22,10 +22,6 @@ public class Bar {
     private String estado;
     private ArrayList<Bebida> bebidaArrayList;
 
-    public void setBebidaArrayList(ArrayList<Bebida> bebidaArrayList) {
-        this.bebidaArrayList = bebidaArrayList;
-    }
-
     /**
      * Construtor Bar
      *
