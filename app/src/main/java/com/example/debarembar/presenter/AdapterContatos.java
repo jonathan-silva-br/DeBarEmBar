@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.debarembar.R;
+import com.example.debarembar.model.Bar;
 import com.example.debarembar.model.Contatos;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -18,10 +20,12 @@ public class AdapterContatos extends RecyclerView.Adapter<AdapterContatos.MyView
 
     private ArrayList<Contatos> listaContatos;
     private Context mContext;
+    private Bar bar;
 
-    public AdapterContatos(ArrayList<Contatos> listaContatos, Context context){
+    public AdapterContatos(ArrayList<Contatos> listaContatos, Context context, Bar bar){
         this.listaContatos = listaContatos;
         this.mContext = context;
+        this.bar = bar;
     }
 
     @NonNull
@@ -68,8 +72,10 @@ public class AdapterContatos extends RecyclerView.Adapter<AdapterContatos.MyView
             FuncoesSms sms = new FuncoesSms();
             Contatos contato = listaContatos.get(getAdapterPosition());
 
-            String mensagem = "app@barembar:";
+            Gson gson = new Gson();
+            String json = gson.toJson(bar);
 
+            String mensagem = "app@barembar===="+json;
             sms.SendSms(mContext,contato.getNumeroContato(),mensagem);
 
         }

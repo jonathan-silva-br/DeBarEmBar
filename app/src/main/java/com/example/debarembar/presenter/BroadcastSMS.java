@@ -3,11 +3,10 @@ package com.example.debarembar.presenter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
-
-import org.json.JSONObject;
 
 /**
  *
@@ -28,6 +27,7 @@ import org.json.JSONObject;
  */
 public class BroadcastSMS extends BroadcastReceiver {
 
+    private String mensagemCompleta = "";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -43,26 +43,25 @@ public class BroadcastSMS extends BroadcastReceiver {
                 for (int i = 0; i < pdus.length; i++){
 
                     SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                    String phoneNumber = currentMessage.getDisplayOriginatingAddress();
 
-                    String senderNum = phoneNumber;
-                    String message = currentMessage.getDisplayMessageBody();
-
-                    if(message.contains("app@barembar")){
-                        String[] m = message.split(":");
-
-                        String infos = m[1];
-                        JSONObject object = new JSONObject(infos);
-                        Log.e("OBJETO RECEBIDO",object.toString());
-
-
-
-
-                    }
-
+                    mensagemCompleta+= currentMessage.getDisplayMessageBody();
 
 
                 } // end for loop
+
+                if(mensagemCompleta.contains("app@barembar")){
+                    String[] m = mensagemCompleta.split("====");
+                    String infos = m[1];
+
+                    Log.e("TESTE",infos);
+                    SharedPreferences preferences = context.getSharedPreferences("json_bank",Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("barSMS",infos);
+                    editor.apply();
+
+                }
+
+
             } // bundle is null
 
         } catch (Exception e) {
