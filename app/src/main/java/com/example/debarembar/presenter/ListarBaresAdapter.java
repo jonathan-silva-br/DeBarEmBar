@@ -30,51 +30,64 @@ public class ListarBaresAdapter extends RecyclerView.Adapter<ListarBaresAdapter.
 
     //Construtor
     public  ListarBaresAdapter(Context context, ArrayList<Bar> listBar, SharedPreferences preferences){
-        addmListBar(listBar);
+        this.mListBar = listBar;
         mContext = context;
         this.preferences = preferences;
     }
 
-    public void addmListBar(ArrayList<Bar> arrayList){
 
-        if(arrayList.size()!=0){
-
-            for (int i = 0; i < arrayList.size(); i++){
-                if(!mListBar.contains(arrayList.get(i))){
-                    mListBar.add(arrayList.get(i));
-                }
-            }
-
+    /**
+     * Método que adiciona um bar por vez no array do adapter
+     *
+     * Este método adiciona o bar vindo do parâmetro e chama o método
+     * que salva os dados. Logo depois ele atualiza os dados da tela.
+     *
+     * @author Matheus Geiser <matheusgeiser@gmail.com>
+     * @param barzika
+     */
+    public void addmListBar(Bar barzika){
+            mListBar.add(barzika);
             salvarDados(preferences);
             notifyDataSetChanged();
-        }
-
 
     }
 
+    /**
+     * Método que salva os bares no sharedPreference em formato JSON
+     *
+     * verifica se a preferencia é nula, se não for ele percorre
+     * o array do adapter e pega cada obj e transforma em uma string
+     * JSON, para depois adicionar um separador que é o "====" e
+     * depois do looping ele adiciona no SharedPreferences.
+     *
+     * @author Matheus Geiser <matheusgeiser@gmail.com>
+     * @since 1.1.1
+     *
+     * @param preferencias
+     */
     private void salvarDados(SharedPreferences preferencias){
 
         if(preferencias != null){
+
             Gson gson = new Gson();
             String arquivo = "";
             for(int i = 0; i < mListBar.size(); i++){
 
                 String json = gson.toJson(mListBar.get(i));
 
+                Log.e("JSON SALVADO",json);
+
                 if(i == 0){
-                    arquivo += json;}
+                    arquivo += json;
+                }
                 else{
                     arquivo += "===="+json;
                 }
 
             }
-
-            Log.e("TESTE",arquivo);
             SharedPreferences.Editor editor = preferencias.edit();
             editor.putString("listaBares",arquivo);
             editor.apply();
-
-
         }
 
     }

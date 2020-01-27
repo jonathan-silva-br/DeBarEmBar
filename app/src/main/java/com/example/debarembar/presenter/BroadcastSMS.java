@@ -53,10 +53,11 @@ public class BroadcastSMS extends BroadcastReceiver {
                     String[] m = mensagemCompleta.split("====");
                     String infos = m[1];
 
+                    Log.e("TESTE",infos);
                     SharedPreferences preferences = context.getSharedPreferences("json_bank",Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    Log.e("LOOG",infos);
                     editor.putString("barSMS",infos);
+                    editor.apply();
 
                 }
 
